@@ -102,4 +102,3 @@ if __name__ == "__main__":
         else:
             mlflow.sklearn.log_model(lr, "model")
 
-            mlflow.set
