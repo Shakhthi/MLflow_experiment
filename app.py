@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import ElasticNet
 from urllib.parse import urlparse
 import mlflow
+import dagshub
 from mlflow.models import infer_signature
 import mlflow.sklearn
 
@@ -20,7 +21,6 @@ import logging
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
-
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -39,6 +39,11 @@ if __name__ == "__main__":
     )
     try:
         data = pd.read_csv(csv_url, sep=";")
+        if os.path.exists("data"):
+            data.to_csv("data/wineQuality.csv")
+        else:
+            os.makedirs("data")
+            data.to_csv("data/wineQuality.csv")
     except Exception as e:
         logger.exception(
             "Unable to download training & test CSV, check your internet connection. Error: %s", e
@@ -80,7 +85,7 @@ if __name__ == "__main__":
 
         ## For Remote server only(DAGShub)
 
-        remote_server_uri="https://dagshub.com/krishnaik06/mlflowexperiments.mlflow"
+        remote_server_uri="https://dagshub.com/Shakhthi/MLflow_experiment.mlflow"
         mlflow.set_tracking_uri(remote_server_uri)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
@@ -96,3 +101,5 @@ if __name__ == "__main__":
             )
         else:
             mlflow.sklearn.log_model(lr, "model")
+
+            mlflow.set

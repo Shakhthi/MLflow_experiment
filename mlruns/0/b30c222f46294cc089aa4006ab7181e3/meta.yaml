@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/4.Data%20Wrangling/Courses/Complete-Data-Science-With-Machine-Learning-And-NLP-2024-main/25-MLFlow%20Dagshub%20and%20BentoML-Complete%20ML%20Project%20Lifecycle/MLFLOW/mlflowexperiments-main/mlruns/0/b30c222f46294cc089aa4006ab7181e3/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b30c222f46294cc089aa4006ab7181e3
+run_name: casual-goose-291
+run_uuid: b30c222f46294cc089aa4006ab7181e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745070727993
+status: 1
+tags: []
+user_id: Mathan
